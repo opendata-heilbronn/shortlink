@@ -1,0 +1,25 @@
+version: '3'
+services:
+  api:
+    image: r.patrick246.de/patrick246/shortlink
+    restart: always
+    environment:
+      MONGO_HOST: "db"
+      HTTP_ADMIN: "<fill admin password>"
+    networks:
+      - default
+      - traefik_net
+    labels:
+      traefik.enable: "true"
+      traefik.port: "8080"
+      traefik.frontend.rule: "Host: shortapi.cfhn.it, cfhn.it"
+      traefik.docker.network: "traefik_net"
+  db:
+    image: mongo:3
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+networks:
+  traefik_net:
+    external: true

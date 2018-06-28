@@ -1,0 +1,37 @@
+{
+  "name": "shortlink",
+  "version": "1.0.0",
+  "description": "Shortlink service for cfhn.it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "compile:watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opendata-heilbronn/shortlink.git"
+  },
+  "keywords": [
+    "shortlinks"
+  ],
+  "author": "patrick246",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/opendata-heilbronn/shortlink/issues"
+  },
+  "homepage": "https://github.com/opendata-heilbronn/shortlink#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongodb": "^3.0.21",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-basic-auth": "^1.1.5",
+    "mongodb": "^3.0.10",
+    "vhost": "^3.0.2"
+  }
+}
