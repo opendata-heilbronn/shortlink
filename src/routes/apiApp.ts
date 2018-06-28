@@ -2,6 +2,7 @@ import express from "express";
 import {Entry} from "../CodeRepository";
 import * as bodyParser from "body-parser";
 import basicAuth from 'express-basic-auth';
+import cors from "cors";
 
 const authMiddleware = basicAuth({
     users: {
@@ -15,6 +16,7 @@ export const apiApp = express.Router();
 
 apiApp.use(bodyParser.json());
 apiApp.use(authMiddleware);
+apiApp.use(cors({origin: 'short.cfhn.it'}));
 
 apiApp.get('/:code', async (req, res) => {
     const entry: Entry = await res.app.locals.codeRepository.get(req.params.code);
