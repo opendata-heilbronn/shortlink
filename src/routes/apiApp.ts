@@ -14,9 +14,9 @@ const authMiddleware = basicAuth({
 
 export const apiApp = express.Router();
 
+apiApp.use(cors({origin: process.env.CORS_HOST || 'short.cfhn.it'}));
 apiApp.use(bodyParser.json());
 apiApp.use(authMiddleware);
-apiApp.use(cors({origin: 'short.cfhn.it'}));
 
 apiApp.get('/:code', async (req, res) => {
     const entry: Entry = await res.app.locals.codeRepository.get(req.params.code);

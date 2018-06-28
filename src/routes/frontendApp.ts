@@ -6,7 +6,7 @@ export const frontendApp = express.Router();
 frontendApp.get('/:code', async (req, res) => {
     const entry: Entry = await res.app.locals.codeRepository.getAndIncrement(req.params.code);
     if(!entry) {
-        res.redirect('https://codeforheilbronn.de/');
+        res.redirect('https://codeforheilbronn.de' + req.path);
         return;
     }
     res.redirect(entry.dest);

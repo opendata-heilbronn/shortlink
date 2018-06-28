@@ -1,5 +1,12 @@
 version: '3'
 services:
+  frontend:
+    image: r.patrick246-de/cfhn/shortlink-admin
+    labels:
+      traefik.enable: "true"
+      traefik.port: "80"
+      traefik.frontend.rule: "Host: short.cfhn.it"
+      traefik.docker.network: "traefik_net"
   api:
     image: r.patrick246.de/patrick246/shortlink
     restart: always
