@@ -14,8 +14,8 @@ const config = {
         database: 'shortlink'
     },
     hosts: {
-        api: process.env.FRONTEND_HOST || 'shortapi.cfhn.it',
-        frontend: process.env.API_HOST || '/(?:www.)?cfhn\.it/',
+        api: process.env.API_HOST || 'shortapi.cfhn.it',
+        frontend: process.env.FRONTEND_HOST || '/(?:www.)?cfhn\.it/',
     }
 };
 

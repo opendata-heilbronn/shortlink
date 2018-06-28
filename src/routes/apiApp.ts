@@ -29,7 +29,7 @@ apiApp.get('/:code', async (req, res) => {
     res.json(entry);
 });
 
-apiApp.post('/:code', async (req, res) => {
+apiApp.put('/:code', async (req, res) => {
     if("dest" in req.body) {
         const entry = await res.app.locals.codeRepository.saveEntry(req.params.code, req.body.dest);
         if(entry) {
@@ -39,4 +39,8 @@ apiApp.post('/:code', async (req, res) => {
         }
     }
     res.status(401).end();
+});
+
+apiApp.get('/', async (req, res) => {
+    res.json(await res.app.locals.codeRepository.getAll());
 });

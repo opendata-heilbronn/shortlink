@@ -24,7 +24,7 @@ export class CodeRepository {
         };
         console.log(entry);
         try {
-            await this.db.collection('links').insertOne(entry);
+            await this.db.collection('links').replaceOne({code}, entry, {upsert: true});
             return entry;
 
         } catch (err) {
@@ -42,4 +42,7 @@ export class CodeRepository {
         return await this.db.collection('links').findOne({code});
     }
 
+    public async getAll(): Promise<Entry[]> {
+        return await this.db.collection('links').find({}).toArray();
+    }
 }
